@@ -14,19 +14,19 @@ ob_start();
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="teste.css">
-<link rel="icon" href="assets/img/faviconx.png" type="image">
+<link rel="stylesheet" href="css/login.css">
+<link rel="icon" href="img/faviconx.png" type="image">
 <title>Book Solution</title>
 
 </head>
 
 <body>
     <div class="lottie-bg">
-        <lottie-interactive path="assets/lotties/bookbg0.json"  background="transparent" speed="1.0" loop  autoplay style="left:0; right:0; top:0; bottom:0; position: absolute;">
+        <lottie-interactive path="lotties/bookbg0.json"  background="transparent" speed="1.0" loop  autoplay style="left:0; right:0; top:0; bottom:0; position: absolute;">
     </div>  
     
     <div class="center">
-     <div class="logoindex"><img  src="assets/img/logoindex.png"></img>
+     <div class="logoindex"><img  src="img/logoindex.png"></img>
      </div>
       <form method="POST" action="login.php">
         <div class="txt_field">
