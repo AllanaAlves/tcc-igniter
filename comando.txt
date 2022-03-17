@@ -1,0 +1,13 @@
+https://codeigniter.com/user_guide/dbmgmt/migration.html
+comandos terminal vs code
+
+composer update
+php spark
+php spark db:create
+php spark make:model
+loginModel
+php spark make:migration
+Login
+
+
+
