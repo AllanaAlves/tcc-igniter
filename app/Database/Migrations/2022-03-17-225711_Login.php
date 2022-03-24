@@ -9,27 +9,33 @@ class Login extends Migration
     public function up()
     {
         $this->forge->addField([
-            'blog_id'          => [
+            'id_usuario'          => [
                 'type'           => 'INT',
                 'constraint'     => 5,
                 'unsigned'       => true,
                 'auto_increment' => true,
+                'null'           => true,
             ],
-            'blog_title'       => [
+            'usuario'       => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
+                'null'       => true,
             ],
-            'blog_description' => [
-                'type' => 'TEXT',
-                'null' => true,
+            'email_usuario' => [
+                'type' => 'VARCHAR',
+                'constraint' => '30',
             ],
+            'senha_usuario' => [
+                'type' => 'VARCHAR',
+                'constraint' => '80',
+            ], 
         ]);
-        $this->forge->addKey('blog_id', true);
-        $this->forge->createTable('blog');
+        $this->forge->addKey('id_usuario', true);
+        $this->forge->createTable('usuarios');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('');
     }
 }

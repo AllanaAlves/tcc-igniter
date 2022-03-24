@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/public/allana';
+    public $baseURL = 'http://localhost/php/tcc-igniter/public';
 
     /**
      * --------------------------------------------------------------------------
