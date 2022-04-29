@@ -5,7 +5,7 @@
 session_start();
 ob_start();
 
-include_once 'conexao.php';
+//include_once 'conexao.php';
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
