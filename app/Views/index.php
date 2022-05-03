@@ -28,7 +28,7 @@ ob_start();
     <div class="center">
      <div class="logoindex"><img  src="img/logoindex.png"></img>
      </div>
-      <form method="POST" action="./Controllers/login.php">
+      <form method="POST" action="/Login">
         <div class="txt_field">
           <input type="text" required name="usuario" value="<?php if(isset($dados['usuario'])){ echo $dados['usuario']; } ?>">
           <span></span>
