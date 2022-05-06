@@ -17,7 +17,7 @@
     <div class="container">
         <div class="text">Cadastro de Funcionário</div>
 
-        <form action="<?php base_url('Auth/save') ?>" method="post"> 
+        <form action="<?= base_url('auth/save') ?>" method="post"> 
            <?= csrf_field(); ?>
            <div class="form-row">
               <div class="input-data">
@@ -63,7 +63,7 @@
                  <input type="text"  name="usuario_funcionario">
                  <div class="underline"></div>
                  <label for="">Nome de Usuário</label>
-                 <span class="text-danger"><?php isset($validation) ? display_error($validation,'usuario_funcionario') : '' ?></span>
+                 <span class="text-danger"><?= isset($validation) ? display_error($validation,'usuario_funcionario') : '' ?></span>
               </div>
               <div class="input-data">
                  <input type="text"  name="senha_funcionario">

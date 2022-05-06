@@ -9,12 +9,13 @@ class Auth extends BaseController
     public function __construct(){
         helper(['url','form']);
     }
+
     public function index()
     {
         return view('login');
     }
 
-    public function registro_func(){
+    public function formulario_funcionario(){
 
         return view('formulario_funcionario');
 
@@ -23,7 +24,7 @@ class Auth extends BaseController
     public function save(){
         $validation = $this->validate([
 
-            'usuario_funcionario'=>'required|valid_usuario|is_unique[funcionario.usuario_funcionario]',
+            'usuario_funcionario'=>'required|valid_usuario_funcionario|is_unique[funcionario.usuario_funcionario]',
             'senha_funcionario'=>'required|matches[senha_funcionario]'
 
         ]);

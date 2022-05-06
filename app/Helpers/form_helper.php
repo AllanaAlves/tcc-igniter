@@ -1,6 +1,6 @@
 <?php
 function display_error($validation, $field){
-    if($validation->getError($field)){
+    if($validation->hasError($field)){
         return $validation->getError($field);
     }
     else
