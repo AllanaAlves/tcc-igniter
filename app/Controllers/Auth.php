@@ -74,7 +74,17 @@ class Auth extends BaseController
                 'cargo'=>$cargo,
                 'data_admissao'=>$data_admissao
             ];
-            
+
+            $loginModel = new \App\Models\LoginModel();
+            $query = $loginModel->insert($values);
+            if(!$query){
+                return redirect()->back()->with('fail','algo aconteceu no registro');
+                //return redirect()->to('formulario_funcionario')->with('fail','algo aconteceu no registro');
+            }
+            else
+            {
+                return redirect()->to('auth/formulario_funcionario')->with('success','Usuário Funcionário Cadastrado!');
+            }
 
         }
     }

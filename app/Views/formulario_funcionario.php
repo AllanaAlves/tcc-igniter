@@ -19,6 +19,16 @@
 
         <form action="<?= base_url('auth/save') ?>" method="post"> 
            <?= csrf_field(); ?>
+           <?php 
+           if(!empty(session()->getFlashdata('fail'))) : ?>
+           <div class="alert alert-danger"> <?= session()->getFlashdata('fail'); ?> </div>
+           <?php endif ?>
+
+           <?php 
+           if(!empty(session()->getFlashdata('success'))) : ?>
+           <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div> <!---->
+           <?php endif ?>
+
            <div class="form-row">
               <div class="input-data">
                  <input type="text"  name="nome_funcionario">
