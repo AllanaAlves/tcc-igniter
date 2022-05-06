@@ -22,11 +22,30 @@ class Auth extends BaseController
     }
 
     public function save(){
+
+        //validacao padrao
+        // $validation = $this->validate([
+
+        //     'usuario_funcionario'=>'required|valid_usuario_funcionario|is_unique[funcionario.usuario_funcionario]',
+        //     'senha_funcionario'=>'required|matches[senha_funcionario]'
+
+        // ]);
+
+        //validacao customizada
         $validation = $this->validate([
 
-            'usuario_funcionario'=>'required|valid_usuario_funcionario|is_unique[funcionario.usuario_funcionario]',
-            'senha_funcionario'=>'required|matches[senha_funcionario]'
-
+            'usuario_funcionario'=>[
+                'rules'=>'required',
+                'errors'=>[
+                    'required'=> 'Coloque o seu Usuário'
+                ]
+                ],
+            /*'senha_funcionario'=>[
+                'rules'=>'required',
+                'errors'=>[
+                    'required'=> 'Coloque uma senha'
+                ]
+                ]     */       
         ]);
 
         if(!$validation){
@@ -34,7 +53,29 @@ class Auth extends BaseController
         }
         else
         {
-            echo 'cadastrado?';
+
+            //echo 'ok'; vamos registrar no db
+            $usuario_funcionario = $this->request->getPost('usuario_funcionario');
+            $senha_funcionario = $this->request->getPost('senha_funcionario');
+            $nome_funcionario = $this->request->getPost('nome_funcionario');
+            $cpf_funcionario = $this->request->getPost('cpf_funcionario');
+            $email_funcionario = $this->request->getPost('email_funcionario');
+            $celular_funcionario = $this->request->getPost('celular_funcionario');
+            $cargo = $this->request->getPost('cargo');
+            $data_admissao = $this->request->getPost('data_admissao');
+
+            $values = [
+                'usuario_funcionario'=>$usuario_funcionario,
+                'senha_funcionario'=>$senha_funcionario,
+                'nome_funcionario'=>$nome_funcionario,
+                'cpf_funcionario'=>$cpf_funcionario,
+                'email_funcionario'=>$email_funcionario,
+                'celular_funcionario'=>$celular_funcionario,
+                'cargo'=>$cargo,
+                'data_admissao'=>$data_admissao
+            ];
+            
+
         }
     }
 
