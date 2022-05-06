@@ -7,14 +7,15 @@ use CodeIgniter\Model;
 class LoginModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'usuarios';
-    protected $primaryKey       = 'id';
+    protected $table            = 'funcionario';
+    protected $primaryKey       = 'id_funcionario';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
+    //protected $returnType       = 'array';
+    protected $allowedFields = ['usuario_funcionario', 'senha_funcionario'];
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

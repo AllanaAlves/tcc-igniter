@@ -53,7 +53,7 @@ class Login extends Migration
                 'type' => 'CHAR',
                 'constraint' => '14',
                 'null'       => false,
-            ],            
+            ],
         ]);
         $this->forge->addKey('id_funcionario', true);
         $this->forge->createTable('funcionario');

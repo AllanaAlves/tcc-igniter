@@ -1,10 +1,3 @@
-<?php
-
-session_start();
-ob_start();
-
-?>
-
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -28,33 +21,24 @@ ob_start();
     <div class="center">
      <div class="logoindex"><img  src="img/logoindex.png"></img>
      </div>
-      <form method="POST" action="/Login">
+      <form action="<?php base_url('Login/check') ?>" method="post"> <!--action="<?php// echo base_url('/auth') ?>"-->
         <div class="txt_field">
-          <input type="text" required name="usuario" value="<?php if(isset($dados['usuario'])){ echo $dados['usuario']; } ?>">
-          <span></span>
+          <input type="text"  name="usuario_funcionario">
+          <!--span><?php// isset($validation) ? display_error($validation, 'usuario_funcionario') : ''  ?></span>-->
           <label>Usuário</label>
         </div>
         <div class="txt_field">
-          <input type="password" required name="senha_usuario" value="<?php if(isset($dados['senha_usuario'])){ echo $dados['senha_usuario']; } ?>">
-          <span></span>
+          <input type="password" name="senha_funcionario">
+          <!--<span><?php //isset($validation) ? display_error($validation, 'senha_funcionario') : ''  ?></span>-->
           <label>Senha</label>
         </div>
-        <a class="pass">Esqueceu sua senha?</a>
-        <div class="pass"></div>
-        <div class='txt_field' style='color: #ff0000'><p>
-<?php 
-
-if(isset($_SESSION['msg'])){
-  echo $_SESSION['msg'];
-  unset($_SESSION['msg']);
-}
-
-?>
+        <i class="pass" style="text-decoration:none;cursor: text;">Login: alradmin</i>
+        <i class="pass" style="text-decoration:none;cursor: text;">Senha: ALR#1245#</i>
+        <div class='' style='color: #ff0000'><p><br>
 
         </p></div>
-        <input type="submit" value="Login" name="login">        
+        <input type="submit" name="" value="Login">        
         <div class="signup_link">
-         <!-- Não é membro? <a href="#">Cadastre-se</a>-->
         </div>        
       </form>
     </div>
