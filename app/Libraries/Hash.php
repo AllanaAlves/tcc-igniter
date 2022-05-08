@@ -3,11 +3,11 @@ namespace App\Libraries;
 
 class Hash
 {
-    public static function make($password){
-        return password_hash($password, PASSWORD_BCRYPT);
+    public static function make($senha_funcionario){
+        return password_hash($senha_funcionario, PASSWORD_BCRYPT);
     }
 
-    public static function check($entered_password, $db_password){
+    public static function check($entered_senha_funcionario, $db_senha_funcionario){
         if(password_verify($entered_senha_funcionario, $db_senha_funcionario)){
             return true;
         }

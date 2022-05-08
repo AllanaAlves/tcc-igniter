@@ -95,14 +95,14 @@ class Auth extends BaseController
             'usuario_funcionario'=>[
                 'rules'=>'required|is_not_unique[funcionario.usuario_funcionario]',
                 'errors'=>[
-                    'required'=>'Usuario ou senha incorretos',
-                    'is_not_unique'=> 'Usuario ou senha incorretos'
+                    'required'=>'Coloque um usuario',
+                    'is_not_unique'=> 'Usuario ou senha incorretos.'
                 ]
                 ],
                 'senha_funcionario'=>[
                     'rules'=>'required',
                     'errors'=>[
-                        'required'=>'Precisa' 
+                        'required'=>'Usuario ou senha incorretos.' 
                     ]
                     ]
         ]);
@@ -120,8 +120,21 @@ class Auth extends BaseController
 
             if(!$check_senha_funcionario){
                 session()->setFlashdata('fail','senha incorreta');
-                return redirect()->to('login')->withInput();
+                return redirect()->to('/auth')->withInput();
             }
+            else
+            {
+                $id_funcionario = $user_info['id_funcionario'];
+                session()->set('LoginUser', $id_funcionario);
+                return redirect()->to('/Home');
+            }
+        }
+    }
+
+    function logout(){
+        if(session()->has('LoginUser')){
+            session()->remove('LoginUser');
+            return redirect()->to('/auth?access=out')->with('fail','Deslogado.');
         }
     }
 }

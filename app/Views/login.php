@@ -34,7 +34,7 @@
         </div>
         <div class="txt_field">
           <input type="password" name="senha_funcionario">
-          <span class="text-danger"><?= isset($validation) ? display_error($validation, 'senha_funcionario') : ''  ?></span>
+          <span class="text-danger"><?= isset($validation) ? display_error($validation, 'senha_funcionario') : ''  ?></span>          
           <label>Senha</label>
         </div>
         <i class="pass" style="text-decoration:none;cursor: text;">Login: alradmin</i>

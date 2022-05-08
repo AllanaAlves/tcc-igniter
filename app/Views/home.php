@@ -39,3 +39,5 @@ google.charts.setOnLoadCallback(desenharPizza);
 
 
 <div id="graficoPizza"></div>
+
+<a href="<?= site_url('auth/logout'); ?>"> desloga </a>
