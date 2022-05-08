@@ -3,6 +3,7 @@
 use CodeIgniter\Controller;
 namespace App\Controllers;
 use App\Models\LoginModel;
+use App\Libraries\Hash;
 
 class Auth extends BaseController
 {
@@ -66,7 +67,7 @@ class Auth extends BaseController
 
             $values = [
                 'usuario_funcionario'=>$usuario_funcionario,
-                'senha_funcionario'=>$senha_funcionario,
+                'senha_funcionario'=>Hash::make($senha_funcionario),
                 'nome_funcionario'=>$nome_funcionario,
                 'cpf_funcionario'=>$cpf_funcionario,
                 'email_funcionario'=>$email_funcionario,
@@ -92,19 +93,16 @@ class Auth extends BaseController
     function check(){
         $validation = $this->validate([
             'usuario_funcionario'=>[
-                'rules'=>'required|valid_usuario_funcionario|is_not_unique[funcionario.usuario_funcionario]',
+                'rules'=>'required|is_not_unique[funcionario.usuario_funcionario]',
                 'errors'=>[
-                    'required'=>'Requer usuario!',
-                    'valid_usuario_funcionario'=>'Entre com usuario valido',
-                    'is_not_unique'=>'usuario nao registrado'
-
+                    'required'=>'Usuario ou senha incorretos',
+                    'is_not_unique'=> 'Usuario ou senha incorretos'
                 ]
                 ],
                 'senha_funcionario'=>[
-                    'rules'=>'required|valid_senha_funcionario|is_not_unique[funcionario.senha_funcionario]',
+                    'rules'=>'required',
                     'errors'=>[
-                        'required'=>'Requer senha!'
-    
+                        'required'=>'Precisa' 
                     ]
                     ]
         ]);
@@ -113,10 +111,17 @@ class Auth extends BaseController
             return view('login',['validation'=>$this->validator]);
         }else
         {
-            $usuario_funcionario = $this->request->getPost('usuario_funcioanrio');
-            $senha_funcionario = $this->request->getPost('senha_funcioanrio');
+
+            $usuario_funcionario = $this->request->getPost('usuario_funcionario');
+            $senha_funcionario = $this->request->getPost('senha_funcionario');
             $loginModel = new \App\Models\LoginModel();
             $user_info = $loginModel->where('usuario_funcionario', $usuario_funcionario)->first();
+            $check_senha_funcionario = Hash::check($senha_funcionario, $user_info['senha_funcionario']);
+
+            if(!$check_senha_funcionario){
+                session()->setFlashdata('fail','senha incorreta');
+                return redirect()->to('login')->withInput();
+            }
         }
     }
 }
