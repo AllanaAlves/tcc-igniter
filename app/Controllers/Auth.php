@@ -1,7 +1,6 @@
 <?php
-
-use CodeIgniter\Controller;
 namespace App\Controllers;
+use CodeIgniter\Controller;
 use App\Models\LoginModel;
 use App\Libraries\Hash;
 
