@@ -1,0 +1,32 @@
+para pular tabela em banco de dados
+
+php spark make:seeder
+
+class login extends seeder
+{
+
+   public function run()
+     {
+ 	$senha ='admin';
+	$model = 'model('LoginModel')';
+	$model->insert([
+		'usuario'=>'admin',
+		'senha'=>'$senha',
+		
+	]);
+		$model->insert([
+		'usuario'=>'supervisor',
+		'senha'=>'supervisor',
+	]);
+		$model->insert([
+		'usuario'=>'gerente',
+		'senha'=>'gerente',
+	]);
+     }
+}
+
+php spark
+
+criar um contoller 
+
+php spark:controller
