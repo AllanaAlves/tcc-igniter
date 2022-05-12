@@ -1,10 +1,10 @@
-create database book_solution 
+create database bs_ign
 default character set utf8mb4 
 default collate utf8mb4_unicode_ci;
 
 
 
-use book_solution;
+use bs_ign;
 
 
 
