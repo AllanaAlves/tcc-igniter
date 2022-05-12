@@ -1,4 +1,6 @@
-<?php include 'cabecalho.php'; ?>
+
+<?php include_once 'cabecalho.php'; ?>
+
 <br>
     <div class="container">
         <div class="text">Cadastro de Funcionário</div>

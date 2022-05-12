@@ -38,9 +38,9 @@
 #--------------------------------------------------------------------
 
  database.default.hostname = localhost
- database.default.database = ci4
+ database.default.database = bs_ign
  database.default.username = root
- database.default.password = root
+ database.default.password = 
  database.default.DBDriver = MySQLi
  database.default.DBPrefix =
 

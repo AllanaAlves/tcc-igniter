@@ -15,6 +15,11 @@ class Auth extends BaseController
         return view('login');
     }
 
+    public function cadastro_cliente()
+    {
+        return view('cadastro_cliente');
+    }
+
     public function formulario_funcionario(){
 
         return view('formulario_funcionario');
