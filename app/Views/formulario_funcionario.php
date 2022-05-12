@@ -1,5 +1,5 @@
 <?php
-include 'cabecalho';
+include 'cabecalho.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

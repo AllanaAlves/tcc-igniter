@@ -1,6 +1,6 @@
 
     <?php
-    include 'cabecalho';
+    include 'cabecalho.php';
     ?>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
